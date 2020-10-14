@@ -176,4 +176,49 @@ To change the figure level attributes(axis labels, title , legend) or dave the f
 
     matplotlib.pyplot.barh(x_axis,y_axis)
 
+
+`.gca()` will return the current axes
+
+
+## Scatter plots
+
+### Maplotlib method
+- adding 'o' will create a scatterplot
     
+    plt.plot(x_axis,y_axos,'o')
+
+- or we can plot this way
+
+    plt.scatter(x_axis, y_axis)
+
+- adding the 's' argument will effect the size of the given axes
+
+    plt.scatter(x_axis,y_axis,s=y_axis)
+
+- editing size of the 's' argument can be done by editing the given axes
+
+    plt.scatter(x_axis,y_axis,s=[i*3 for i in y_axis])
+
+### Object oriented scatter plot
+    
+    fig, ax = plt.subplots()
+    ax.scatter(x_axis, y_axis)
+
+
+## Create a Pie Chart Using MATPLOTLIB method
+    colors = ["slateblue", "magenta", "lightblue", "green", "yellowgreen", "greenyellow", "yellow", "orange", "gold", "indianred", "tomato", "mistyrose"]
+    explode_values = (0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0, 0, 0)
+    plt.subplots(figsize=(8, 8))
+    plt.pie(y_axis, labels=x_axis)
+    explode_values = (0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0, 0, 0)
+    plt.pie(y_axis, explode=explode_values, labels=x_axis, autopct='%.1f%%',colors=colors)
+
+- To explode a pie wedge, we use array-like data points (like the tuple explode_values = (0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0, 0, 0)) for each value in the pie chart.
+    - The length of the tuple should be equal to the number of wedges in the pie chart.
+    - The value specified to "explode" a wedge is the fraction of the radius from the center of the pie for each wedge.
+- To pop out the seventh month, July, we use a decimal-point value of 0.2.
+- To add the percentage of each wedge on the pie chart, we use the autopct parameter and provide the format of one decimal place using .1f%.
+- The % before and after the .1f% formats the number as a percentage.
+
+## Create a Pie Chart using the object-oriented interface
+
