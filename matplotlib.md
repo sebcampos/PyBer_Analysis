@@ -222,3 +222,58 @@ To change the figure level attributes(axis labels, title , legend) or dave the f
 
 ## Create a Pie Chart using the object-oriented interface
 
+    ax.set_xlim(0,50)
+
+    ax.invert_yaxis()
+
+
+    fig, ax = plt.subplots(figsize=(8,8))
+    
+    colors = ["slateblue", "magenta", "lightblue", "green", 
+    "yellowgreen", "greenyellow", "yellow", "orange", "gold", "indianred", "tomato", "mistyrose"]
+    
+    explode_values = (0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0, 0)
+    
+    ax.pie(y_axis, explode=explode_values, labels=x_axis, autopct='%.1f%%',colors=colors,startangle=-96,shadow=True)
+    
+    ax.invert_yaxis()
+    
+    plt.show()
+
+## Adding an error bar using matplotlib and object oriented approach
+
+    plt.errorbar(x, y, yerr=<value>)
+
+    fig, ax = plt.subplots()
+    ax.errorbar(x_axis, y_axis, yerr=stdev, capsize=3)  
+    plt.show()
+
+### Adding an error to a bar plot
+    plt.bar(x_axis, y_axis, yerr=stdev, capsize=3)
+
+    fig, ax = plt.subplots()
+    ax.bar(x_axis, y_axis, yerr=stdev, capsize=3)
+    plt.show()    
+
+## Adjusting ticks with xticks()
+
+    import numpy as np
+    plt.barh(x_axis, y_axis)
+    plt.xticks(np.arange(0, 51, step=5.0))
+    plt.gca().invert_yaxis()
+
+
+    fig, ax = plt.subplots()
+    ax.barh(x_axis, y_axis)
+    ax.set_xticks(np.arange(0, 51, step=5.0))
+    plt.show()
+
+    from matplotlib.ticker import MultipleLocator
+    #Increase the size of the plot figure.
+    fig, ax = plt.subplots(figsize=(8, 8))
+    ax.barh(x_axis, y_axis)
+    ax.set_xticks(np.arange(0, 51, step=5.0))
+
+    #Create minor ticks at an increment of 1.
+    ax.xaxis.set_minor_locator(MultipleLocator(1))
+    plt.show()
