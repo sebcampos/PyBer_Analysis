@@ -277,3 +277,22 @@ To change the figure level attributes(axis labels, title , legend) or dave the f
     #Create minor ticks at an increment of 1.
     ax.xaxis.set_minor_locator(MultipleLocator(1))
     plt.show()
+
+## Using matplotlib.pyplot with pandas and numpy 
+
+    import matplotlib.pyplot as plt
+    import pandas as pd 
+    import numpy as np
+
+    pyber_ride_df=pd.read_csv("resources/PyBer_ride_data.csv")
+    pyber_ride_df.plot(x="Month", y="Avg. Fare ($USD)")
+
+    #Set x-axis and tick locations. 
+    x_axis = np.arange(len(pyber_ride_df))
+    tick_locations = [value for value in x_axis]
+    #Plot the data.
+    pyber_ride_df.plot(x="Month", y="Avg. Fare ($USD)")
+    plt.xticks(tick_locations, pyber_ride_df["Month"])
+    plt.show()
+
+
